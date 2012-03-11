@@ -1,0 +1,13 @@
+@charset "utf-8";
+/* CSS Document */
+
+.maintd
+{
+	width:800px;
+	text-align:center;
+}
+.col
+{
+	background-color:#00CCFF;
+	height:40px;
+}

@@ -1,0 +1,21 @@
+
+1. curl -o www.example.com response.html
+
+
+OR (for json response )
+curl https://raw.github.com/currencybot/open-exchange-rates/master/latest.json > response.txt
+
+
+2. curl -L http://stackoverflow.com
+
+
+3. i)   ftp://userName:password@ftp.myDomain.com/directory/subdirectory/ 
+
+   ii)  curl -u username sftp://shell.example.com/etc/issue
+
+   iii) curl telnet://remote.server.com
+
+
+4. curl -d "user=foobar&pass=12345&id=blablabla&ding=submit" http://www.formpost.com/getthis/post.cgi
+
+ 

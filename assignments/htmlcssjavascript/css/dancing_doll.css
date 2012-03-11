@@ -1,0 +1,82 @@
+#head {
+    display: block;
+    display: block;
+    width: 80px;
+    position:absolute;
+    height: 80px;
+    background: yellow;
+    left:205px;
+    -moz-border-radius: 35px;
+}
+
+#body {
+    display: block;
+    display: block;
+    width: 150px;
+    position:absolute;
+    height: 200px;
+    background: #ffc0cb;
+    left:170px;
+    top:80px;
+    -moz-border-radius: 70px;
+}
+
+#left_hand{
+    width:90px;
+    height:15px;
+    position:absolute;
+    background-color:#bdb76b;
+    left:110px;
+    top:130px;
+
+}
+
+#right_hand{
+
+    width:90px;
+    height:15px;
+    position:absolute;
+    background-color:#bdb76b;
+    left:290px;
+    top:130px;
+
+}
+
+#left_leg{
+
+    width:15px;
+    height:90px;
+    position:absolute;
+    background-color:#bdb76b;
+    left:210px;
+    top:240px;
+
+}
+#right_leg{
+
+    width:15px;
+    height:90px;
+    position:absolute;
+    background-color:#bdb76b;
+    left:270px;
+    top:240px;
+}
+
+
+#head:hover{
+    -moz-transform:matrix(0.866,0.5,-0.6,0.866,0,0);}
+
+#body:hover{
+    -moz-transform:matrix(0.866,0.5,-0.2,0.866,0,0);}
+
+#left_leg:hover{
+    -moz-transform:matrix(0.866,0.5,-0.5,0.866,0,0);}
+
+#right_leg:hover{
+    -moz-transform:matrix(0.866,0.5,-0.5,0.866,0,0);}
+
+#left_hand:hover{
+    -moz-transform:matrix(0.866,0.5,-0.5,0.866,0,0);}
+
+#right_hand:hover{
+    -moz-transform:matrix(0.866,0.5,-0.5,0.866,0,0);}

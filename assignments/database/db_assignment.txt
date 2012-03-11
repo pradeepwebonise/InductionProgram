@@ -1,0 +1,223 @@
+webonise@webonise-desktop:~/Inducation_Program/Database$ mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 44
+Server version: 5.1.54-1ubuntu4 (Ubuntu)
+
+Copyright (c) 2000, 2010, Oracle and/or its affiliates. All rights reserved.
+This software comes with ABSOLUTELY NO WARRANTY. This is free software,
+and you are welcome to modify and redistribute it under the GPL v2 license
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database DB_Assignment;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| DB_Assignment      |
+| assignment         |
+| mysql              |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql> use DB_Assignment;
+Database changed
+
+mysql> create table Tags 
+    -> (
+    ->  tags_id int AUTO_INCREMENT primary key,
+    ->  tags_name varchar(100)
+    -> );
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> 
+mysql> create table Articles 
+    -> (
+    ->  articles_id int AUTO_INCREMENT primary key,
+    ->  articles_title varchar(100),
+    ->  articles_description varchar(100)
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> create table Pages
+    -> (
+    ->  pages_id int AUTO_INCREMENT primary key,
+    ->  pages_title varchar(100),
+    ->  pages_description varchar(100)
+    -> );
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> create table TagsResources 
+    -> (
+    ->  tags_resources_id int  AUTO_INCREMENT primary key ,
+    ->  tags_id int not null,
+    ->  articles_id int not null,
+    ->  pages_id int not null,
+    ->  FOREIGN KEY (tags_id) REFERENCES Tags (tags_id),
+    ->  FOREIGN KEY (articles_id) REFERENCES Articles (articles_id),
+    ->  FOREIGN KEY (pages_id) REFERENCES Pages (pages_id)
+    -> );
+Query OK, 0 rows affected (0.09 sec)
+
+
+mysql> insert into Tags (tags_name) values('#Java');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Tags (tags_name) values ('#C++');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Tags (tags_name) values ('#VC++');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Tags (tags_name) values ('#.NET');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Articles (articles_title,articles_description) values ('Java tutorial','OOPS concept,colletion, pointer');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Articles (articles_title,articles_description) values ('VC++ tutorial','OOPS concept,scope, pointer');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Articles (articles_title,articles_description) values ('.NET tutorial','OOPS concept,collection, pointer');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Articles (articles_title,articles_description) values ('C++ book','OOPS concept,scope resolotion, pointer');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Articles (articles_title,articles_description) values ('C++ pdf','OOPS concept,scope resolotion, pointer');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Articles (articles_title,articles_description) values ('C++ ppt','OOPS concept,scope resolotion, pointer');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> 
+mysql> 
+mysql> insert into Pages ( pages_title,pages_description) values ('C++ Page','object, class,inheritance,polymorphism');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Pages ( pages_title,pages_description) values ('Java Page','object, class,inheritance,polymorphism');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Pages ( pages_title,pages_description) values ('VC++ Page','object, class,inheritance,polymorphism');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Pages ( pages_title,pages_description) values ('.NET tutorial','object, class,inheritance,polymorphism');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Pages ( pages_title,pages_description) values ('.NET ebook','object, class,inheritance,polymorphism');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into TagsResources values (1,1,1,1);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into TagsResources values (2,1,2,2);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into TagsResources values (3,1,3,3);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into TagsResources values (4,1,4,4);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into TagsResources values (5,2,2,1);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into TagsResources values (6,2,3,2);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into TagsResources values (7,3,2,3);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into TagsResources values (8,3,1,4);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into TagsResources values (9,3,3,2);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from Tags;
++---------+-----------+
+| tags_id | tags_name |
++---------+-----------+
+|       1 | #Java     |
+|       2 | #C++      |
+|       3 | #VC++     |
+|       4 | #.NET     |
++---------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> select * from Articles;
++-------------+----------------+----------------------------------------+
+| articles_id | articles_title | articles_description                   |
++-------------+----------------+----------------------------------------+
+|           1 | C++ tutorial   | OOPS concept,scope resolotion, pointer |
+|           2 | Java tutorial  | OOPS concept,colletion, pointer        |
+|           3 | VC++ tutorial  | OOPS concept,scope, pointer            |
+|           4 | .NET tutorial  | OOPS concept,collection, pointer       |
+|           5 | C++ book       | OOPS concept,scope resolotion, pointer |
+|           6 | C++ pdf        | OOPS concept,scope resolotion, pointer |
+|           7 | C++ ppt        | OOPS concept,scope resolotion, pointer |
++-------------+----------------+----------------------------------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from Pages;
++----------+---------------+----------------------------------------+
+| pages_id | pages_title   | pages_description                      |
++----------+---------------+----------------------------------------+
+|        1 | C++ Page      | object, class,inheritance,polymorphism |
+|        2 | Java Page     | object, class,inheritance,polymorphism |
+|        3 | VC++ Page     | object, class,inheritance,polymorphism |
+|        4 | .NET tutorial | object, class,inheritance,polymorphism |
+|        5 | .NET ebook    | object, class,inheritance,polymorphism |
++----------+---------------+----------------------------------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from TagsResources;
++-------------------+---------+-------------+----------+
+| tags_resources_id | tags_id | articles_id | pages_id |
++-------------------+---------+-------------+----------+
+|                 1 |       1 |           1 |        1 |
+|                 2 |       1 |           2 |        2 |
+|                 3 |       1 |           3 |        3 |
+|                 4 |       1 |           4 |        4 |
+|                 5 |       2 |           2 |        1 |
+|                 6 |       2 |           3 |        2 |
+|                 7 |       3 |           2 |        3 |
+|                 8 |       3 |           1 |        4 |
+|                 9 |       3 |           3 |        2 |
++-------------------+---------+-------------+----------+
+9 rows in set (0.00 sec)
+
+
+mysql> select tags_id,count(tags_id) as t from TagsResources group by tags_id order by t desc limit 1;
++---------+---+
+| tags_id | t |
++---------+---+
+|       1 | 4 |
++---------+---+
+1 row in set (0.00 sec)
+
+mysql> select Tags.tags_name,TagsResources.tags_id,count(Tags.tags_id) as count from Tags,TagsResources where(Tags.tags_id=TagsResources.tags_id) group by tags_id order by count desc;
++-----------+---------+-------+
+| tags_name | tags_id | count |
++-----------+---------+-------+
+| #Java     |       1 |     4 |
+| #VC++     |       3 |     3 |
+| #C++      |       2 |     2 |
++-----------+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select TagsResources.tags_id,Tags.tags_name,count(Tags.tags_id) as count from Tags,TagsResources where(Tags.tags_id=TagsResources.tags_id) group by tags_id order by count desc limit 1;
++---------+-----------+-------+
+| tags_id | tags_name | count |
++---------+-----------+-------+
+|       1 | #Java     |     4 |
++---------+-----------+-------+
+1 row in set (0.00 sec)
+
+
+
+

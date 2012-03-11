@@ -1,0 +1,20 @@
+function ChessBoard()
+{
+    var temp = 1;
+    var html_view = ''
+    for(var i=8; i>0; i--)
+    {
+        temp*=-1;
+        html_view = html_view+'<center><div style="width:420px;">'
+        for(var j=0; j<8; j++)
+        {
+            temp*=-1;
+            var dv = (temp<0?'black':'white');
+            html_view += ''+'<div class="'+dv+'">'+'</div>'
+        }
+        html_view += '</div>'
+    }
+    html_view += ''
+    document.write(html_view)
+}
+ChessBoard()
